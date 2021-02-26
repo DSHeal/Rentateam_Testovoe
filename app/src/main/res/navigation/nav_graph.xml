@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/users_list_fragment">
+
+    <fragment
+        android:id="@+id/app_info_fragment"
+        android:name="com.dsheal.rentateam_testovoe.ui.app_info.AppInfoFragment"
+        android:label="О программе"
+        android:text="Тестовое задание для Rentateam"
+        tools:layout="@layout/app_info_fragment">
+        <action
+            android:id="@+id/action_appInfoFragment_to_usersListFragment"
+            app:destination="@id/user_info_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_info_fragment"
+        android:name="com.dsheal.rentateam_testovoe.ui.user_info.UserInfoFragment"
+        android:label="User Info"
+        android:gravity="center"
+        tools:layout="@layout/user_info_fragment">
+        <action
+            android:id="@+id/action_userInfoFragment_to_usersListFragment"
+            app:destination="@id/users_list_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/users_list_fragment"
+        android:name="com.dsheal.rentateam_testovoe.ui.users_list.UsersListFragment"
+        android:label="Users List"
+        tools:layout="@layout/users_list_fragment">
+        <action
+            android:id="@+id/action_usersListFragment_to_appInfoFragment"
+            app:destination="@id/app_info_fragment" />
+        <action
+            android:id="@+id/action_usersListFragment_to_userInfoFragment"
+            app:destination="@id/user_info_fragment" />
+    </fragment>
+</navigation>
