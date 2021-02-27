@@ -59,7 +59,7 @@ public class UsersListFragment extends Fragment {
             @Override
             public void onChanged(@io.reactivex.annotations.Nullable Throwable throwable) {
                 if (throwable != null) {
-                    Toast.makeText(getContext(), "Ошибка загрузки данных!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Ошибка загрузки данных!", Toast.LENGTH_SHORT).show();
                     viewModel.clearErrors();
                 }
             }

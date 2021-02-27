@@ -1,7 +1,6 @@
 package com.dsheal.rentateam_testovoe.model.data;
 
 import android.content.Context;
-
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -25,6 +24,6 @@ public abstract class AppDatabase extends RoomDatabase {
             return database;
         }
     }
-    //возвращает объект интерфейса Дао
+    //возвращает объект интерфейса Dао
     public abstract UsersDao usersDao();
 }

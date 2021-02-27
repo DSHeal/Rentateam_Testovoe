@@ -13,7 +13,6 @@ import com.dsheal.rentateam_testovoe.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
-import static androidx.navigation.Navigation.findNavController;
 
 public class MainActivity extends AppCompatActivity {
 

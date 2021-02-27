@@ -3,20 +3,16 @@ package com.dsheal.rentateam_testovoe.ui.users_list;
 import android.app.Application;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.dsheal.rentateam_testovoe.api.ApiFactory;
 import com.dsheal.rentateam_testovoe.api.ApiService;
 import com.dsheal.rentateam_testovoe.model.data.AppDatabase;
 import com.dsheal.rentateam_testovoe.model.pojo.User;
 import com.dsheal.rentateam_testovoe.model.pojo.UserResponse;
-
 import java.util.List;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -32,13 +28,11 @@ public class UsersListViewModel extends AndroidViewModel {
 
     public UsersListViewModel(@NonNull Application application) {
         super(application);
-        // нужно создать объекты, на которые будет подписываться View
         db = AppDatabase.getInstance(application);
         users = db.usersDao().getAllUsers();
         errors = new MutableLiveData<>();
     }
-    // чтобы активити могла подписаться на users, создаем его геттер
-    // теперь View может вызвать метод getUsers, получить объект LiveData и подписаться на него
+
     public LiveData<List<User>> getUsers() {
         return users;
     }
@@ -50,13 +44,10 @@ public class UsersListViewModel extends AndroidViewModel {
         errors.setValue(null);
     }
 
-    @SuppressWarnings("unchecked")
     public void insertUsers(List<User> users) {
         new UsersListViewModel.InsertUsersTask().execute(users);
     }
 
-    //загружать список также лучше в другом потоке
-    @SuppressWarnings("deprecation")
     private static class InsertUsersTask extends AsyncTask<List<User>, Void, Void> {
         @Override
         protected Void doInBackground(List<User>... lists) {
@@ -82,12 +73,9 @@ public class UsersListViewModel extends AndroidViewModel {
         ApiFactory apiFactory = ApiFactory.getInstance();
         ApiService apiService = apiFactory.getApiService();
         compositeDisposable = new CompositeDisposable();
-        //этот метод возвращает тип Observable
         Disposable disposable = apiService.getUsers()
-                // эти первые две строчки указываются практически во всех случаях: в каком потоке загружать и в каком потоке принимать
-                .subscribeOn(Schedulers.io()) // показывает, в каком потоке совершать все обращения к БД или интернету
-                .observeOn(AndroidSchedulers.mainThread()) // в каком потоке мы будем принимать данные - в главном, результат выполнения производился уже в главном потоке
-                // теперь указываем, что делать, когда мы получим данные
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<UserResponse>() {
                     @Override
                     public void accept(UserResponse userResponse) throws Exception {
