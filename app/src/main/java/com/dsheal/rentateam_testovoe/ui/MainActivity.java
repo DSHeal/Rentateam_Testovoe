@@ -7,18 +7,12 @@ import androidx.navigation.NavController.OnDestinationChangedListener;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
-
 import android.os.Bundle;
 import android.view.View;
-
-
 import com.dsheal.rentateam_testovoe.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
-
 import static androidx.navigation.Navigation.findNavController;
 
 public class MainActivity extends AppCompatActivity {
