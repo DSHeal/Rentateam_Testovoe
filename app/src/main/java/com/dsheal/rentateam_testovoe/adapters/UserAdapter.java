@@ -45,12 +45,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("avatar_path", users.get(position).getAvatar());
-                        bundle.putString("name", users.get(position).getFirstName());
-                        bundle.putString("surname", users.get(position).getLastName());
-                        bundle.putString("email", users.get(position).getEmail());
-                        Navigation.findNavController(view).navigate(R.id.user_info_fragment, bundle);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("avatar_path", users.get(position).getAvatar());
+                    bundle.putString("name", users.get(position).getFirstName());
+                    bundle.putString("surname", users.get(position).getLastName());
+                    bundle.putString("email", users.get(position).getEmail());
+                    Navigation.findNavController(view).navigate(R.id.user_info_fragment, bundle);
                 }
             });
         }

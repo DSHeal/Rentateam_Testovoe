@@ -6,9 +6,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class UserResponse {
-    // первый json, который мы получаем с массивом пользователей
-    @SerializedName("data") // эти аннотации используются, чтобы показать библиотеке Gson как создать этот класс
-    // "data" - в кавычках указываем ключ, по которому получаем данные
+
+    @SerializedName("data")
     @Expose
     private List<User> response = null;
 

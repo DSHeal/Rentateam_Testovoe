@@ -4,13 +4,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.dsheal.rentateam_testovoe.R;
 import com.squareup.picasso.Picasso;
 
@@ -33,8 +31,8 @@ public class UserInfoFragment extends Fragment {
         lastName = view.findViewById(R.id.textViewLastName);
         email = view.findViewById(R.id.textViewEmail);
         avatar = view.findViewById(R.id.imageViewAvatar);
-        Picasso.get().load(getArguments().getString("avatar_path")).into(avatar);
         assert getArguments() != null;
+        Picasso.get().load(getArguments().getString("avatar_path")).into(avatar);
         name.setText(getArguments().getString("name"));
         lastName.setText(getArguments().getString("surname"));
         email.setText(getArguments().getString("email"));

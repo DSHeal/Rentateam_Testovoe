@@ -48,7 +48,7 @@ public class UsersListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
        super.onActivityCreated(savedInstanceState);
        viewModel = ViewModelProviders.of(this).get(UsersListViewModel.class);
-        //подписываемся на изменения в базе данных, getUsers возвращает тип liveData
+        //подписываемся на изменения в базе данных, getUsers() возвращает тип liveData
        viewModel.getUsers().observe(this.getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(@io.reactivex.annotations.Nullable List<User> users) {

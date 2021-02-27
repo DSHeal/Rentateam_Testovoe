@@ -27,14 +27,15 @@ public class MainActivity extends AppCompatActivity {
     public void navInit () {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.nav_host_fragment_container);
+        // получаем контроллер из контейнера
         NavController navController = navHostFragment.getNavController();
-
+        // добавили нижнюю навигационную панель
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav_view);
         NavigationUI.setupWithNavController(bottomNav, navController);
-
+        // добавили тулбар
         Toolbar toolbar = findViewById(R.id.toolBar);
         NavigationUI.setupWithNavController(toolbar, navController);
-
+        // меняем видимость нав.деталей в зависимости от экрана
         navController.addOnDestinationChangedListener(new OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller,
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
                     toolbar.setVisibility(View.VISIBLE);
                     bottomNav.setVisibility(View.VISIBLE);
                 } else {
-                        toolbar.setVisibility(View.VISIBLE);
-                        bottomNav.setVisibility(View.INVISIBLE);
+                    toolbar.setVisibility(View.VISIBLE);
+                    bottomNav.setVisibility(View.INVISIBLE);
                 }
             }
         });

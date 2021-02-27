@@ -2,14 +2,12 @@ package com.dsheal.rentateam_testovoe.model.pojo;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 // делаем класс таблицей в базе данных
 @Entity(tableName = "users")
 public class User {
-    // pojo - классы, в которые преобразовывается json. Содержат переменные, геттеры и сеттеры, ни от кого не наследуются
     @PrimaryKey(autoGenerate = true)
     private int tableId;
     @SerializedName("id")
@@ -36,13 +34,9 @@ public class User {
         this.tableId = tableId;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getEmail() {
         return email;

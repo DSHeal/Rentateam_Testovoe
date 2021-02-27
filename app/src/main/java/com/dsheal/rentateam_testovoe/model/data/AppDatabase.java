@@ -25,6 +25,6 @@ public abstract class AppDatabase extends RoomDatabase {
             return database;
         }
     }
-    //возвращает объект интерфейса Dао
+    //возвращает объект интерфейса Дао
     public abstract UsersDao usersDao();
 }
