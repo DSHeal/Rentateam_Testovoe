@@ -44,7 +44,6 @@ public class UsersListViewModel extends AndroidViewModel {
         errors.setValue(null);
     }
 
-    @SuppressWarnings("unchecked")
     public void insertUsers(List<User> users) {
         new UsersListViewModel.InsertUsersTask().execute(users);
     }
