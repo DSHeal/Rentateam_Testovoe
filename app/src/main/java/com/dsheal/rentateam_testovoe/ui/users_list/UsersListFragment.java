@@ -1,7 +1,6 @@
 package com.dsheal.rentateam_testovoe.ui.users_list;
 
 import androidx.lifecycle.Observer;
-
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,17 +8,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.dsheal.rentateam_testovoe.R;
 import com.dsheal.rentateam_testovoe.adapters.UserAdapter;
 import com.dsheal.rentateam_testovoe.model.pojo.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,10 +46,10 @@ public class UsersListFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+       super.onActivityCreated(savedInstanceState);
        viewModel = ViewModelProviders.of(this).get(UsersListViewModel.class);
         //подписываемся на изменения в базе данных, getUsers возвращает тип liveData
-        viewModel.getUsers().observe(this.getViewLifecycleOwner(), new Observer<List<User>>() {
+       viewModel.getUsers().observe(this.getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(@io.reactivex.annotations.Nullable List<User> users) {
                 userAdapter.setUsers(users);
